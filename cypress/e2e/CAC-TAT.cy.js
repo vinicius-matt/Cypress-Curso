@@ -45,9 +45,9 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   //Exercicio 02 - Validando dados nos campos
-  it('Verificando valor no campo telefone',()=>{
+  it('Verificando valor no campo obrigatorio de telefone',()=>{
     cy.get('#phone').as('telefone')
-    //cy.get('@telefone').type('47997740921')
+    cy.get('@telefone').type('47997740921')
 
     //verficando valor
     cy.get('@telefone')
@@ -55,7 +55,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     .should('match',/^\d+$/)
     //cy.get('@telefone').should('have.value','47997740921')
 
-    it.only('Exibe mensagem de erro quando telefone nao preenchido',() =>{
+    it('Exibe mensagem de erro quando telefone nao preenchido',() =>{
     cy.get('#firstName').type('Matheus')
     cy.get('#lastName').type('Miranda')
     cy.get('#email').type('matheusvini754l')
@@ -66,4 +66,11 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.error')
     })
   })
+
+      it.only('Preenche e limpa campos',() => {
+      cy.get('#firstName')
+      .type('Matheus')
+      .should('have.value','Matheus')
+
+    })
 })
