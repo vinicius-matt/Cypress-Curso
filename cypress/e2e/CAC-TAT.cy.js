@@ -21,7 +21,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   it('Testeando Delay',() =>{
-    cy.get('#firstName').type('Matheus',{delay:1000})
+    cy.get('#firstName').type('Matheus',{delay:100})
     cy.get('#lastName').type('Miranda')
     cy.get('#email').type('matheusvini754@gmail.com')
     cy.get('#open-text-area').type('Teste')
@@ -45,9 +45,8 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   //Exercicio 02 - Validando dados nos campos
-  it.only('Verificando valor no campo telefone',()=>{
+  it('Verificando valor no campo telefone',()=>{
     cy.get('#phone').as('telefone')
-    cy.get('@telefone').type('47997740921')
     //cy.get('@telefone').type('47997740921')
 
     //verficando valor
@@ -56,5 +55,15 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     .should('match',/^\d+$/)
     //cy.get('@telefone').should('have.value','47997740921')
 
+    it.only('Exibe mensagem de erro quando telefone nao preenchido',() =>{
+    cy.get('#firstName').type('Matheus')
+    cy.get('#lastName').type('Miranda')
+    cy.get('#email').type('matheusvini754l')
+    cy.get('#open-text-area').type('Teste')
+    cy.get('#phone-checkbox').click()
+    cy.get('button[type="submit"]').click()
+
+    cy.get('.error')
+    })
   })
 })
