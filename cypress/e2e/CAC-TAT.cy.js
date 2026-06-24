@@ -68,11 +68,17 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   })
 
   //Pracitando comando clear
-      it.only('Preenche e limpa campos',() => {
+      it('Preenche e limpa campos',() => {
       cy.get('#firstName')
       .type('Matheus')
       .should('have.value','Matheus')
       .clear()
       .should('have.value','')
+    })
+
+    //validando elemento classe erro
+    it.only('Validando mensagem de erro dos campos obrigatorios',() => {
+      cy.get('button[type="submit"]').click()
+      cy.get('.error').should('be.visible')
     })
 })
