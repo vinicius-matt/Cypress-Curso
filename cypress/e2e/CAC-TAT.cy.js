@@ -67,10 +67,12 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     })
   })
 
+  //Pracitando comando clear
       it.only('Preenche e limpa campos',() => {
       cy.get('#firstName')
       .type('Matheus')
       .should('have.value','Matheus')
-
+      .clear()
+      .should('have.value','')
     })
 })
