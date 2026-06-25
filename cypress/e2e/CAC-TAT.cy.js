@@ -77,8 +77,14 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     })
 
     //validando elemento classe erro
-    it.only('Validando mensagem de erro dos campos obrigatorios',() => {
+    it('Validando mensagem de erro dos campos obrigatorios',() => {
       cy.get('button[type="submit"]').click()
       cy.get('.error').should('be.visible')
+    })
+
+    it.only('Envia form de sucesso com comando customizado',() => {
+      cy.fillMandatoryFieldsAndSubmit()
+
+      cy.get('.sucess').should('be.visible')
     })
 })
