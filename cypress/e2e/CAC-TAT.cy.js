@@ -114,8 +114,8 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       //cy.get('select').select(1) -> seleciona por indice
     })
 
-    it.only('praticando uso do select',() => {
-      cy.get('select').select(4)
-      cy.get('select').should('have.value','youtube')
+    it('Selecionando produto youtube',() => {
+      cy.get('#product').select('YouTube')
+     .should('have.value','youtube')
     })
 })
