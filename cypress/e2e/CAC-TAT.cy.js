@@ -108,9 +108,14 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     })
 
     //Validando uso de options
-    it.only('Utilizando comando options', () =>{
+    it('Utilizando comando options', () =>{
       cy.get('select').select('Blog')
       //cy.get('select').select('youtube') -> seleciona pelo texto mesmo que nao seja igual 
       //cy.get('select').select(1) -> seleciona por indice
+    })
+
+    it.only('praticando uso do select',() => {
+      cy.get('select').select(4)
+      cy.get('select').should('have.value','youtube')
     })
 })
