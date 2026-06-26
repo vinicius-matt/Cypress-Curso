@@ -86,12 +86,31 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     it('Envia form de sucesso com comando customizado',() => {
       cy.fillMandatoryFieldsAndSubmit()
 
-      cy.get('.sucess').should('be.visible')
+      cy.get('.success').should('be.visible')
     })
 
-    it.only('Envia form de sucesso com comando customizado',() => {
+    it('Envia form de sucesso com comando customizado',() => {
       cy.fillMandatoryFieldsAndSubmit()
 
       cy.get('.success').should('be.visible')
+    })
+
+    //utilizando cy.contains
+    it('Praticando o uso contains', () =>{
+      cy.get('#firstName').type('Matheus')
+      cy.get('#lastName').type('Miranda')
+      cy.get('#email').type('matheusvini754l')
+      cy.get('#open-text-area').type('Teste')
+      cy.get('#phone-checkbox').click()
+      cy.contains('button','Enviar').click()
+
+      cy.get('.error')
+    })
+
+    //Validando uso de options
+    it.only('Utilizando comando options', () =>{
+      cy.get('select').select('Blog')
+      //cy.get('select').select('youtube') -> seleciona pelo texto mesmo que nao seja igual 
+      //cy.get('select').select(1) -> seleciona por indice
     })
 })
