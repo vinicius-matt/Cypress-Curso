@@ -14,7 +14,13 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     console.log('Passou')
   })
 
-   it.only('Seleciona botões do tipo "Feedback" ', () =>{
+   it('Seleciona botões do tipo "Feedback" ', () =>{
+    cy.get('input[type="radio"][value="feedback"]').check()
+    .should('be.checked','have.value="feedback"')
+    console.log('Passou')
+  })
+
+  it('Seleciona todos os botões',() =>{
     cy.get('input[type="radio"][value="feedback"]').check()
     .should('be.checked','have.value="feedback"')
     console.log('Passou')
