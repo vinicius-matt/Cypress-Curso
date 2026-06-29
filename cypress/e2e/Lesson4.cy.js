@@ -25,6 +25,16 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     .should('be.checked','have.value="feedback"')
     console.log('Passou')
   })
+
+  //Função para selecionar varios botões each and wrap
+  it('Marca cada tipo de atendimento',() => {
+    cy.get('input[type="radio"]')
+    .each( typeOfService => {
+      cy.wrap(typeOfService)
+      .check()
+      .should('be.checked')
+    })
+  })
 })
 
 //cy.get('#support-type > :nth-child(3)')
