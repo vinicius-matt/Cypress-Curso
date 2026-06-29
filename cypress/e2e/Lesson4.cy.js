@@ -36,7 +36,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     })
   })
 
-  it.only('Marcando e desmarcando checkbox', () =>{
+  it('Marcando e desmarcando checkbox', () =>{
     cy.get('input[type="checkbox"]')
     .each(typeOfContatcs =>{
       cy.wrap(typeOfContatcs)
@@ -44,6 +44,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('be.checked')
       cy.get('#phone-checkbox')
       .uncheck()
+      //.should('not.be.check')
     })//cy.get('#phone-checkbox')
   })
 })
