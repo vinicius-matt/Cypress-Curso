@@ -35,6 +35,16 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('be.checked')
     })
   })
-})
+
+  it.only('Marcando e desmarcando checkbox', () =>{
+    cy.get('input[type="checkbox"]')
+      .check()
+      .should('be.checked')
+      .last()
+      .uncheck()
+      // cy.get('#phone-checkbox')
+      // .uncheck()
+    })//cy.get('#phone-checkbox')
+  })
 
 //cy.get('#support-type > :nth-child(3)')
