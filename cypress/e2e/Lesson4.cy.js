@@ -38,13 +38,14 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   it.only('Marcando e desmarcando checkbox', () =>{
     cy.get('input[type="checkbox"]')
+    .each(typeOfContatcs =>{
+      cy.wrap(typeOfContatcs)
       .check()
       .should('be.checked')
-      .last()
+      cy.get('#phone-checkbox')
       .uncheck()
-      // cy.get('#phone-checkbox')
-      // .uncheck()
     })//cy.get('#phone-checkbox')
   })
+})
 
 //cy.get('#support-type > :nth-child(3)')
