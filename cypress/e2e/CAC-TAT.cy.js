@@ -128,7 +128,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     })
 
     //selecionando pelo indice
-    it.only('Selecionando produto Blog',() => {
+    it('Selecionando produto Blog',() => {
       cy.get('#product')
       .select(1)
       .should('have.value','blog')
